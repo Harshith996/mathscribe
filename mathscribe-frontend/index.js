@@ -14,13 +14,13 @@ let file;
 //     input.click();
 // };
 
-$('.file-upload').on('click', function(e) {
-  e.preventDefault();
-  $('#file-input').trigger('click');
+$('.file-upload').on('click', function (e) {
+    e.preventDefault();
+    $('#file').trigger('click');
 });
 //when browse is clicked:
 
-input.addEventListener('change', function()  {
+input.addEventListener('change', function () {
     file = this.files[0];
     dragArea.classList.add('active');
     displayFile();
@@ -28,23 +28,23 @@ input.addEventListener('change', function()  {
 })
 
 //when file is inside the drag area
-dragArea.addEventListener('dragover', (event)=>{
+dragArea.addEventListener('dragover', (event) => {
     event.preventDefault();
     dragText.textContent = 'Release to Upload';
     dragArea.classList.add('active');
     console.log('File is inside the drag area');
 });
-    
+
 //when file leaves drag area
-    
-dragArea.addEventListener('dragleave',()=>{
+
+dragArea.addEventListener('dragleave', () => {
     dragText.textContent = 'Drag & Drop';
     dragArea.classList.remove('active');
-  //  console.log('File left the drag area');
+    //  console.log('File left the drag area');
 });
 
 //when the file is dropped
-dragArea.addEventListener('drop', (event) =>{
+dragArea.addEventListener('drop', (event) => {
     event.preventDefault();
     file = event.dataTransfer.files[0];
     //console.log(file);
@@ -52,30 +52,44 @@ dragArea.addEventListener('drop', (event) =>{
 });
 
 
-function displayFile(){
-     let filetype = file.type;
-    let validExtensions= ['image/jpeg', 'image/jpg', 'image/png','application/pdf'];
-    
-    if(validExtensions.includes(filetype)){
+function displayFile() {
+    let filetype = file.type;
+    let validExtensions = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+
+    if (validExtensions.includes(filetype)) {
         let fileReader = new FileReader();
-        fileReader.onload = () =>{
+        fileReader.onload = () => {
             let fileURL = fileReader.result;
             let imgTag = `<img src = "${fileURL}" alt = "">`;
             dragArea.innerHTML = imgTag;
-     };
-    
-     fileReader.readAsDataURL(file);
+        };
+
+        fileReader.readAsDataURL(file);
     }
-    else{
+    else {
         alert('This file is not an Image!');
         dragArea.classList.remove('active');
-        
-    }
-        
-    }
-  //  console.log('File is dropped');
 
+    }
 
+}
+//  console.log('File is dropped');
+
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/') // specify the directory where you want to save uploaded files
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname) // use the original file name as the filename
+  }
+});
+const upload = multer({ storage: storage });
+
+function save_file() {
+  
+
+}
 
 
 

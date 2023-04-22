@@ -25,7 +25,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 50vh;
     flex-direction: column;
     background-color: #e0eafc;
     background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
