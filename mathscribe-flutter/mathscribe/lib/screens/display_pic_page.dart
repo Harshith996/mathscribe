@@ -1,12 +1,15 @@
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:mathscribe/screens/scan_qr.dart';
 
 class DisplayPictureScreen extends StatelessWidget {
   final String imagePath;
+  final CameraDescription camera;
 
-  const DisplayPictureScreen({super.key, required this.imagePath});
+  const DisplayPictureScreen(
+      {super.key, required this.imagePath, required this.camera});
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +37,7 @@ class DisplayPictureScreen extends StatelessWidget {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (c, a1, a2) => QRViewExample(
+                        camera: camera,
                         imagePath: imagePath,
                       ),
                       transitionsBuilder: (c, anim, a2, child) =>

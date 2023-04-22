@@ -92,6 +92,7 @@ class HomePageState extends State<HomePage> {
                   // Pass the automatically generated path to
                   // the DisplayPictureScreen widget.
                   imagePath: image.path,
+                  camera: widget.camera,
                 ),
               ),
             );
