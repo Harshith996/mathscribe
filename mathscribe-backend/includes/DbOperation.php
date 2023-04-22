@@ -26,6 +26,21 @@ class DbOperation {
         }
     }
 
+    public function obtain_session_code()
+    {
+        $query = "INSERT INTO `pc_id`(`pc_id`) VALUES (NULL);";
+        $stmt = $this->con->prepare($query);
+        if($stmt->execute()){
+            $pc_id = $this->con->insert_id;
+            $values['pc_id'] = $pc_id;
+            return $values;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
 }
 
 ?>
