@@ -52,11 +52,6 @@
         <div class="container2" style="float:left; width:50%; margin-left:7%">
             <script>
 
-<<<<<<< Updated upstream
-            <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt=""
-                 onblur='generateBarCode()' />
-=======
-
                 window.onload = function () {
                     //when the document is finished loading, replace everything
                     //between the <a ...> </a> tags with the value of splitText
@@ -75,8 +70,12 @@
                     //         simpleText = url;
                     //         document.getElementbyId("barcode").src = url;
                     //     })
-                    $.get('http://169.232.97.85:8080/backend/flutter_apis/obtainSessionCode.php', function(data) {
-                        alert(data);
+                    $.get('./backend/flutter_apis/obtainSessionCode.php', function(data) {
+                        var nric = data;
+                        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+                        $('#barcode').attr('src', url);
+                        simpleText = url;
+                        document.getElementbyId("barcode").src = url;
                     })
 
                     // var nric = myJson["pc_id"];
@@ -89,7 +88,6 @@
             </script>
 
             <img id='barcode' src="" alt="" onblur='' />
->>>>>>> Stashed changes
             <span class="QRText1">Open the Mathscribe app<br>
                 Take a picture of your work<br>
                 Scan the QR Code</span>
