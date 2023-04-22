@@ -10,6 +10,8 @@ let input = document.querySelector('input');
 let file;
 
 
+
+
 // button.onclick = () =>{    
 //     input.click();
 // };
@@ -89,13 +91,56 @@ function displayFile() {
 }
 //  console.log('File is dropped');
 
+var x;
 
+window.onload = function () {
+    //when the document is finished loading, replace everything
+    //between the <a ...> </a> tags with the value of splitText
+    // fetch("http://169.232.97.85:8080/backend/flutter_apis/obtainSessionCode.php", {
+    //     mode: "no-cors",
+    //     method: "POST",
+    //     headers: {
+    //         "Accept": "application/json"
+    //     }
+    // })
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         var nric = response['pc_id'];
+    //         var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+    //         $('#barcode').attr('src', url);
+    //         simpleText = url;
+    //         document.getElementbyId("barcode").src = url;
+    //     })
+    $.get('./backend/flutter_apis/obtainSessionCode.php', function (data) {
+        x = data;
+        var nric = data;
+        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+        $('#barcode').attr('src', url);
+        simpleText = url;
+        document.getElementbyId("barcode").src = url;
+    })
 
-
-
-function generateBarCode() {
-    var nric = $('#text').val();
-    var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
-    $('#barcode').attr('src', url);
+    // var nric = myJson["pc_id"];
+    // var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
+    // $('#barcode').attr('src', url);
+    // simpleText = url;
+    // document.getElementbyId("barcode").src = url;
 }
+
+
+
+jQuery(function ($) {
+    setInterval(function () {
+        $.get('/getrows.php', function (newRowCount) {
+            $('#rowcounter').html(newRowCount);
+        });
+    }, 2000); // 2000ms == 2 seconds
+});
+
+$.get(url)
+    .done(function () {
+        // exists code 
+    }).fail(function () {
+        // not exists code
+    })
 
