@@ -2,48 +2,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 </style> */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:sans-serif;
+    font-family: sans-serif;
 }
 
-h1{
-       font-family: sans-serif;
-       padding-left: 40px;
-       
+h1 {
+    font-family: sans-serif;
+    padding-left: 50px;
+    align-content: center;
+    text-align: center;
+    padding-bottom: 30px;
+
 }
 
-h2{
-        font-family: sans-serif;
-        padding-left: 110px;
-        margin-bottom: 20px;
-        font-weight: 500;
+h2 {
+    font-family: sans-serif;
+    padding-left: 140px;
+    margin-bottom: 20px;
+    font-weight: 500;
 }
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh;
-    flex-direction: column;
+
+body {
+
     background-color: #e0eafc;
     background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
     background: linear-gradient(to right, #cfdef3, #e0eafc)
 }
 
 
-.container{
+.container {
+
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    min-height: 0vh;
+    flex-direction: column;
     max-width: 600px;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     background: #fff;
     border-radius: 20px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;        
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding-top: 20px;
+    margin-left: 40px;
 }
 
+.container2 {
 
-.drag-area{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    align-content: right;
+    min-height: 0vh;
+    flex-direction: column;
+    max-width: 500px;
+    max-height: 500px;
+    width: 100%;
+    height: 80%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding-top: 20px;
+    margin-left: 80px;
+    
+
+}
+
+.barcode{
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin:10px auto;
+    padding-left: 30px;
+    margin-left: 30px;
+}
+.QRText1{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}
+.QRText2{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+.QRText3{
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+
+}
+
+.drag-area {
     height: 250px;
     border: 3px dashed #e0eafc;
     display: flex;
@@ -55,35 +116,35 @@ body{
 }
 
 
-.drag-area .icon{
+.drag-area .icon {
     font-size: 50px;
     color: #1683ff;
 }
 
-.drag-area .header{
+.drag-area .header {
     font-size: 20px;
     font-weight: 500;
-    color: #34495e;    
+    color: #34495e;
 }
 
-.drag-area .support{
+.drag-area .support {
     font-size: 12px;
     color: gray;
     margin: 10px 0 15px 0;
 }
 
-.drag-area .button{
+.drag-area .button {
     font-size: 20px;
     font-weight: 500;
     color: #1683ff;
     cursor: pointer;
 }
 
-.drag-area.active{
+.drag-area.active {
     border: 2px solid #1683ff;
 }
 
-.drag-area img{
+.drag-area img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -98,4 +159,56 @@ body{
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+#submit {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #b3bdd6;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 16px;
+    width: 160px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-left: 200px;
+}
+
+#submit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-family: sans-serif;
+    color: black;
+    font-weight: bold;
+
+}
+
+#submit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#submit:hover span {
+    padding-right: 25px;
+}
+
+#submit:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+#submit:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    font-family: Arial, Helvetica, sans-serif;
 }

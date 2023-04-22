@@ -16,38 +16,47 @@
 </head>
 
 <body>
-        <section id="content">
-            <h1 style="font-size: 39px; margin-top: 120px;">We solve your problems</h1>
+    <h1 style="font-size: 39px; margin-top: 40px;">We solve your problems</h1>
 
-            <div class="container">
-                <div class="row">
-                    <h2 style="color: skyblue; font-size: 26px; margin-top: -9px;"> Upload an image here</h2>
-                    <div class="drag-area">
-                        <div class="icon">
-                            <i class="fas fa-images"></i>
-                        </div>
-                        <span class="header">Drag & Drop</span>
-                        <span class="header">or <a href="#" class="file-upload">Browse</a> </span>
-                        <!-- <span class = "button">Browse</span> -->
-                        <!-- <input type="file" accept=".JPEG,.JPG,.PNG,.PDF" hidden/> -->
-                        <!-- <input type="file" name="file" id="file" class="visuallyhidden" /> -->
-                        <span class="supports">(JPEG, JPG, PNG, or PDF)</span>
+    <section id="content">
+
+        <div class="container" style="float:left; width: 60%">
+            <div class="row">
+                <h2 style="color: #87ceeb; font-size: 26px; margin-top: -9px; "> Upload an image here</h2>
+                <div class="drag-area">
+                    <div class="icon">
+                        <i class="fas fa-images"></i>
                     </div>
-
-
+                    <span class="header">Drag & Drop</span>
+                    <span class="header">or <a href="#" class="file-upload">Browse</a> </span>
+                    <!-- <span class = "button">Browse</span> -->
+                    <!-- <input type="file" accept=".JPEG,.JPG,.PNG,.PDF" hidden/> -->
+                    <!-- <input type="file" name="file" id="file" class="visuallyhidden" /> -->
+                    <span class="supports">(JPEG, JPG, PNG, or PDF)</span>
                 </div>
+                <form action=" upload.php" method="post" enctype="multipart/form-data">
+                    <input type="file" name="file" id="file" hidden /><br><br>
+                    <button type="submit" name="submit" id="submit"><span>Render</span></button>
+                </form>
+
+
             </div>
-            <div>
-                <!-- <input type="submit" name="submit" value="Submit"> -->
-            </div>
+        </div>
 
 
-        </section>
 
-        <form action="upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" id="file" class="visuallyhidden"><br><br>
-            <input type="submit" value="submit" name="submit">
-        </form>
+        <div class="container2" style="float:left; width:40%; margin-left:80px">
+            
+
+            <img id='barcode' src="https://api.qrserver.com/v1/create-qr-code/?data=HelloWorld&amp;size=100x100" alt=""
+                 width="300" height="300" onblur='generateBarCode()' />
+            <span class="QRText1">Open the Mathscribe app</span>
+            <span class="QRText2">Take a picture of your work</span>
+            <span class="QRText2">Scan the QR Code</span>
+        </div>
+
+
+    </section>
 
 
 
