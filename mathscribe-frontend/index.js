@@ -18,6 +18,18 @@ $('.file-upload').on('click', function (e) {
     e.preventDefault();
     $('#file').trigger('click');
 });
+
+
+const fileInput = document.getElementById('file');
+const submitButton = document.getElementById('submit');
+
+fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+        document.querySelector('#submit').disabled = false;
+    } else {
+        document.querySelector('#submit').disabled = true;
+    }
+});
 //when browse is clicked:
 
 input.addEventListener('change', function () {
@@ -54,10 +66,11 @@ dragArea.addEventListener('drop', (event) => {
 
 function displayFile() {
     let filetype = file.type;
-    let validExtensions = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+    let validExtensions = ['image/jpeg', 'image/jpg', 'image/png'];
 
     if (validExtensions.includes(filetype)) {
         let fileReader = new FileReader();
+
         fileReader.onload = () => {
             let fileURL = fileReader.result;
             let imgTag = `<img src = "${fileURL}" alt = "">`;
@@ -66,6 +79,7 @@ function displayFile() {
 
         fileReader.readAsDataURL(file);
     }
+
     else {
         alert('This file is not an Image!');
         dragArea.classList.remove('active');
