@@ -27,4 +27,5 @@ img = alpha_composite.convert('RGB')
 
 plt.imshow(img)
 plt.axis('off')
+plt.title(f"Graph of {function}")
 plt.show()
