@@ -91,7 +91,7 @@ function displayFile() {
 }
 //  console.log('File is dropped');
 
-var x;
+let x = 0;
 
 window.onload = function () {
     //when the document is finished loading, replace everything
@@ -117,7 +117,7 @@ window.onload = function () {
         var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
         $('#barcode').attr('src', url);
         simpleText = url;
-        document.getElementbyId("barcode").src = url;
+        document.getElementById("barcode").src = url;
     })
 
     // var nric = myJson["pc_id"];
@@ -127,20 +127,19 @@ window.onload = function () {
     // document.getElementbyId("barcode").src = url;
 }
 
-
-
 jQuery(function ($) {
     setInterval(function () {
-        $.get('/getrows.php', function (newRowCount) {
-            $('#rowcounter').html(newRowCount);
-        });
+        $.ajax({
+            method: "POST",
+            url: "test.php",
+            data: { text: x },
+            success: function (response) {
+                if (response != "false") {
+                    
+                    window.location.replace('render.html?img='+response);
+                }
+            },
+        })
     }, 2000); // 2000ms == 2 seconds
 });
-
-$.get(url)
-    .done(function () {
-        // exists code 
-    }).fail(function () {
-        // not exists code
-    })
 
