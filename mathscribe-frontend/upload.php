@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
 
 		$new_name = "math." . explode(".", $name)[1];
         if(isset($name) and !empty($name)){
-            $location = 'C:\xampp\htdocs\mathscribe_test\\';      
+            $location = 'C:\xampp\htdocs\mathscribe\\';      
             if(move_uploaded_file($temp_name, $location.$new_name)){
                 echo 'File uploaded successfully';
             }

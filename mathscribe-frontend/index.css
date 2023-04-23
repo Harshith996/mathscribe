@@ -2,6 +2,71 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 </style> */
 
+/* Style the header with a grey background and some padding */
+.main_header {
+  overflow: hidden;
+  background-color: #f9f2ed;
+  padding: 20px 10px;
+}
+
+.logo{
+    align-items: left;
+    justify-content: left;
+    float: left;
+    width: 5%;
+    height: 5%;
+    border-radius: 10px;
+}
+/* Style the header links */
+.main_header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.main_header a.name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #3ab0ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Change the background color on mouse-over */
+/* .header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+/* .header a.active {
+  background-color: dodgerblue;
+  color: white;
+} */
+
+/* Float the link section to the right */
+/* .header-right {
+  float: right;
+} */ */
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header-right {
+    float: none;
+  }
+} */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -16,6 +81,8 @@ h1 {
     text-align: center;
     padding-bottom: 20%;
     margin-bottom: 3%;
+    padding-top: 1%;
+    color: #ffb562;
 
 }
 
@@ -25,13 +92,14 @@ h2 {
     padding-top: -10%; */
     font-weight: 500;
     text-align: center;
+    
 }
 
 body {
 
-    background-color: #e0eafc;
-    background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
-    background: linear-gradient(to right, #cfdef3, #e0eafc)
+    background-color: white;
+    /* background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
+    background: linear-gradient(to right, #cfdef3, #e0eafc) */
 }
 
 
@@ -46,10 +114,10 @@ body {
     width: 100%;
     height:50%;
     padding: 20px;
-    background: #fff;
+    background: #f9f2ed;
     border-radius: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    padding-top: 5%;
+    padding-top: 2%;
     padding-bottom: 5%;
     margin-left: 2.5%;
     margin-top: -20%;
@@ -68,7 +136,7 @@ body {
     width: 100%;
     height: 40%;
     padding: 20px;
-    background: #fff;
+    background: #f9f2ed;
     border-radius: 20px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding-top: 5.5%;
@@ -99,6 +167,7 @@ body {
     margin-top: 10px;
     margin-left: 10%;
     padding-top: 3%;
+    color: #ffb562;
 
 }
 
@@ -115,10 +184,12 @@ body {
     padding-top: 5%;
 }
 
-
+.file-upload{
+    color: #ffb562;
+}
 .drag-area .icon {
     font-size: 50px;
-    color: #1683ff;
+    color: #ffb562;
 }
 
 .drag-area .header {
@@ -167,7 +238,7 @@ body {
 #submit {
     display: flex;
     border-radius: 4px;
-    background-color: #b3bdd6;
+    background-color: #3ab0ff;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -188,7 +259,7 @@ body {
     position: relative;
     transition: 0.5s;
     font-family: sans-serif;
-    color: black;
+    color: white;
     font-weight: bold;
 
 }
@@ -204,6 +275,7 @@ body {
 
 #submit:hover span {
     padding-right: 25px;
+    color:black;
 }
 
 #submit:hover span:after {
