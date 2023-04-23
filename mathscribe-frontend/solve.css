@@ -1,0 +1,77 @@
+.main_header {
+  overflow: hidden;
+  background-color: #f9f2ed;
+  padding: 20px 10px;
+}
+
+.logo{
+    align-items: left;
+    justify-content: left;
+    float: left;
+    width: 5%;
+    height: 5%;
+    border-radius: 10px;
+}
+/* Style the header links */
+.main_header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.main_header a.name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #3ab0ff;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+
+.col-mid-6{
+    float:left;
+    height: 60%;
+    width: 40%;
+    align-content: center;
+    justify-content: center;
+    padding-left: 19%;
+    padding-top: 5%;
+}
+
+#solution{
+    height: 60%;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    border-color: grey;
+    border-style: solid;
+    padding-left: 5%;
+
+
+}
+
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffb562;
+    padding-top:-4%;
+    margin-top: -2%;
+    text-align: center;
+    padding-left: -5%;
+}
+.col-mid-7{
+    float: left;
+    height:40%;
+    width:40%;
+    background-color: white;
+    padding-top: 2%;
+}
+
+#calculator{
+    background-color: white;
+}

@@ -5,13 +5,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="solve.css" rel="stylesheet">
     <script src="https://www.desmos.com/api/v1.7/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
     <title>Mathscribe</title>
 </head>
 
 <body>
-    <div id="calculator" style="width: 600px; height: 400px;"></div>
-    <img id="solution" src="">
+    <div class="main_header">
+        <img src="logo.png" class="logo" href="index.html">
+        <a class="name">MATHSCRIBE.SOLVE</a>
+    </div>
+
+    <div class="col-mid-6">
+        <img class="col-mid-6" id="solution" src="" ">
+    </div>
+
+    <div class = " col-mid-7" id="calculator" style="height: 400px; width: 500px;">
+        <h2>Graph of Solution</h2>
+    </div>
+
 </body>
 <script>
     window.onload = async function () {
@@ -36,7 +48,7 @@
             .then(async function (data) {
                 //console.log("URL: " + data['url']);
                 //console.log("Result: " + data['result']);
-                document.getElementById("solution").src=data['url'];
+                document.getElementById("solution").src = data['url'];
 
                 //  const latex = "15x^3/3 * 5x^2";
                 const response = await fetch('https://api.openai.com/v1/chat/completions', {
