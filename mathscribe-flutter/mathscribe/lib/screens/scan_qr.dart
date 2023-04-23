@@ -67,7 +67,7 @@ showAlertDialog(BuildContext context, message, CameraDescription camera) {
   Widget okButton = TextButton(
     child: const Text(
       "OK",
-      style: TextStyle(color: Color(CustomColors.green)),
+      style: TextStyle(color: Color(0xFFFFB562)),
     ),
     onPressed: () {
       Navigator.pushReplacement(
@@ -91,7 +91,7 @@ showAlertDialog(BuildContext context, message, CameraDescription camera) {
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(32.0))),
     contentPadding: const EdgeInsets.all(20.0),
-    backgroundColor: const Color(CustomColors.background),
+    backgroundColor: const Color(0xFF3AB0FF),
     content: Text(
       message,
       style: const TextStyle(color: Colors.white),
