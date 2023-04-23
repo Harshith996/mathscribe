@@ -39,11 +39,67 @@
     margin-left: 50%;
     
 } */
-.col-md-6 {
-  float: left;
-  width: 50%;
+
+.main_header {
+  overflow: hidden;
+  background-color: #f9f2ed;
+  padding: 20px 10px;
 }
 
+.logo{
+    align-items: left;
+    justify-content: left;
+    float: left;
+    width: 5%;
+    height: 5%;
+    border-radius: 10px;
+}
+/* Style the header links */
+.main_header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.main_header a.name {
+  font-size: 25px;
+  font-weight: bold;
+  color: #3ab0ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.col-md-6 {
+  float: left;
+  width: 49%;
+  /* background-color: #f9f2ed;
+  border-radius: 10px; */
+  border-color:#f87474;
+  border-style: solid;
+}
+
+.col-md-7 {
+  float: right;
+  width: 49%;
+  /* background-color: #f9f2ed;
+  border-radius: 10px; */
+  border-color:#f87474;
+  border-style: solid;
+}
+
+#rendered-equation{
+    background-color: #f9f2ed;
+    border-radius: 10px;
+    padding:1%;
+}
+.outline{
+    border-style:solid;
+    border-color: #f87474;
+}
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -58,28 +114,57 @@
 
 body {
 
-    background-color: #e0eafc;
-    background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
-    background: linear-gradient(to right, #cfdef3, #e0eafc)
+    background-color: white;
+    /* background: -webkit-linear-gradient(to right, #cfdef3, #e0eafc);
+    background: linear-gradient(to right, #cfdef3, #e0eafc) */
 }
 
 
 .my-button {
     display: inline-block;
     margin: 5px; /* space between buttons */
-    background: #b3bdd6; /* background color */
-    color: black; /* text color */
+    background: #ffb562;/* background color */
+    color: white; /* text color */
     font-size: 1.5em;
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     /* font-style: italic; */
-    border-radius: 50px; /* rounded corners */
+    border-radius: 10px; /* rounded corners */
+    border-color: #ffb562;
     padding: 8px 16px; /* space around text */
     -moz-transition: all 0.2s;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
-    text-decoration: none;
+    text-decoration:none;
+    font-weight: 750;
+}
+
+
+.my-button2{
+    display: inline-block;
+    margin: 5px; /* space between buttons */
+    background: #3ab0ff;/* background color */
+    color: white; /* text color */
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-style: italic; */
+    border-radius: 10px; /* rounded corners */
+    border-color: #3ab0ff;
+    padding: 8px 16px; /* space around text */
+    -moz-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    text-decoration:none;
+    font-weight: 750;
 }
 .my-button:hover {
-    background: skyblue;
-    color: #c1e1e0;
+    background: white;
+    color: black;
+    border-color: white;
+}
+
+
+.my-button2:hover {
+    background: white;
+    color: black;
+    border-color: white;
 }
