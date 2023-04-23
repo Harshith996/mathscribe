@@ -36,10 +36,10 @@
 if(isset($_POST['submit'])){
         $name       = $_FILES['file']['name'];  
         $temp_name  = $_FILES['file']['tmp_name']; 
-
-		$new_name = "math." . explode(".", $name)[1];
+        $milliseconds = floor(microtime(true) * 1000);
+		$new_name = $milliseconds . "." . explode(".", $name)[1];
         if(isset($name) and !empty($name)){
-            $location = 'C:\xampp\htdocs\mathscribe\\';      
+            $location = 'C:\\xampp\\htdocs\\mathscribe\\backend\\images\\';      
             if(move_uploaded_file($temp_name, $location.$new_name)){
                 echo 'File uploaded successfully';
             }
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
         }
     
 
-        header('Location: render.html');
+        header('Location: render.html?img='.$new_name);
  		exit;
 }
 
