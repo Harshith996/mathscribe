@@ -78,8 +78,10 @@
   width: 49%;
   /* background-color: #f9f2ed;
   border-radius: 10px; */
-  border-color:#f87474;
+  border-color:#f9f2ed;
   border-style: solid;
+  border-width: 5px;
+  border-radius: 5px;
 }
 
 .col-md-7 {
@@ -87,13 +89,14 @@
   width: 49%;
   /* background-color: #f9f2ed;
   border-radius: 10px; */
-  border-color:#f87474;
+  border-color:#f9f2ed;
   border-style: solid;
+  border-width: 5px;
+  border-radius: 5px;
 }
 
 #rendered-equation{
     background-color: #f9f2ed;
-    border-radius: 10px;
     padding:1%;
 }
 .outline{
@@ -128,7 +131,7 @@ body {
     font-size: 1.5em;
     font-family: Arial, Helvetica, sans-serif;
     /* font-style: italic; */
-    border-radius: 10px; /* rounded corners */
+    border-radius: 0px; /* rounded corners */
     border-color: #ffb562;
     padding: 8px 16px; /* space around text */
     -moz-transition: all 0.2s;
@@ -147,7 +150,7 @@ body {
     font-size: 1.5em;
     font-family: Arial, Helvetica, sans-serif;
     /* font-style: italic; */
-    border-radius: 10px; /* rounded corners */
+    border-radius: 0px; /* rounded corners */
     border-color: #3ab0ff;
     padding: 8px 16px; /* space around text */
     -moz-transition: all 0.2s;
