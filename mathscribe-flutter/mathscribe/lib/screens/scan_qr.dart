@@ -86,7 +86,7 @@ showAlertDialog(BuildContext context, message, CameraDescription camera) {
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title: const Text("Error",
+    title: const Text("Success",
         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
     shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(32.0))),
