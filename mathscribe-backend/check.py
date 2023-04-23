@@ -1,7 +1,6 @@
 import wolframalpha
 import os
 import sys
-import sympy
 
 equation1 = sys.argv[1]
 equation2 = sys.argv[2]

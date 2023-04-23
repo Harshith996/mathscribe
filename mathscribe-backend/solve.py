@@ -1,17 +1,11 @@
 import wolframalpha
 import os
 import sys
-import sympy
 
 func = sys.argv[1]
 
 API_KEY = os.environ.get('WOLF_API_KEY')
 client = wolframalpha.Client("5PPWUX-GEP9JQ5VG7")
-
-# Define the math problem you want to solve
-# problem = "integrate x^2 + 3x step-by-step"
-# problem = "limit sin(x)/x x->0 step-by-step"
-# problem = "solve 3+5 step-by-step"
 
 #Give the prompt to the "problem" variable like above examples
 
@@ -26,7 +20,9 @@ keywords_solutions = ["Results", "Solutions", "Limit","Indefinite integrals", "D
 # Results for algebra, solutions for differentiation, Limit for limit, Indefinate integrals for integration
 # print(res)
 url = ""
-result1 = next(res.results).text
+result1 = next(res.results).text.split("=")[1][1:]   #splitttttttttttttttt
+if "constant" in result1:
+    result1 = result1[:-11]  #indefinate integrals can avoid the + constant to ensure graphing
 for pod in res.pod:
     # print(pod.title)
     if pod.title in keywords_solutions:
