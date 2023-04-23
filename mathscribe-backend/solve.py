@@ -42,7 +42,7 @@ for pod in res.pod:
 if url:
     print([url,result1])
 else:
-    print("Something failed!")
+    print("Something failed!")
 
 
 

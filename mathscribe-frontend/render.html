@@ -44,9 +44,8 @@
         </div>
         <div class="col-md-7">
             <div id="rendered-equation">
-                <p>Rendered equations:</p>
+                <p>Rendering equations....</p>
 
-                $$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$
             </div>
             <button class="my-button" title="Solve" href="solve.html" onclick="takeMeToSolve()">SOLVE</button><button
                 class="my-button" title="Copy" href="check.html" onclick="getLatex()">COPY LaTeX</button>
@@ -146,6 +145,7 @@
             // copyText.setSelectionRange(0, 99999); // For mobile devices
 
             // Copy the text inside the text field
+            console.log(latex);
             navigator.clipboard.writeText(latex);
 
             // Alert the copied text
