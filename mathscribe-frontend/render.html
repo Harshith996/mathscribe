@@ -12,6 +12,8 @@
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 
 
@@ -33,11 +35,13 @@
 
     <div class="row" style="text-align: center;">
         <div class="col-md-6">
-            <img src="math.png" class="typeset" alt="typeset">
+            <img src="" id="handwritten-image" class="typeset" alt="typeset">
         </div>
         <div class="col-md-6">
-            <img src="math.png" class="typeset" alt="typeset">
-
+            <p>Rendered equations:</p>
+            <div id="rendered-equation">
+                $$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$
+            </div>
         </div>
         <p>
             <a class="my-button" title="Graph" href="graph.html">Graph</a><a class="my-button" title="Solve"
@@ -48,5 +52,75 @@
 
 
 </body>
+<script>
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const imgPath = urlParams.get('img');
+    console.log(imgPath);
+    const fullImgPath = "./backend/images/" + imgPath;
+    document.getElementById("handwritten-image").src = fullImgPath;
+
+    // const myHeaders = new Headers();
+    // myHeaders.append("app_id", "harshith_g_ucla_edu_e8b790_24215d");
+    // myHeaders.append("app_key", "e2379abbc89efa6cb7b25d143f4faf27fbb17ed266ef421569d8f36adfae46e4");
+    // myHeaders.append("Content-Type", "application/json");
+    // const body = {
+    //     "src": "http://169.232.97.85:8080/backend/images/" + fullImgPath,
+    //     "formats": ["text", "data", "html"],
+    //     "data_options": {
+    //         "include_latex": true,
+    //         "include_asciimath": true
+    //     }
+    // }
+    // const request = new Request("https://api.mathpix.com/v3/text", {
+    //     method: "POST",
+    //     headers: myHeaders,
+    //     body: JSON.stringify(body),
+    // });
+    // request.json().then((data) => {
+    //     console.log(data);
+    // });
+    fetch('https://api.mathpix.com/v3/text', {
+        method: 'POST',
+        headers: {
+            'app_id': 'harshith_g_ucla_edu_e8b790_24215d',
+            'app_key': 'e2379abbc89efa6cb7b25d143f4faf27fbb17ed266ef421569d8f36adfae46e4',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "src": "http://169.232.97.85:8080/backend/images/" + imgPath,
+            "formats": ["text", "data", "html"],
+            "data_options": {
+                "include_latex": true,
+                "include_asciimath": true
+            }
+        })
+    })
+        .then(response => response.json())
+        .then(response => {
+            var data = response["data"];
+            for (var i = 0, l = data.length; i < l; i++) {
+                var d = data[i];
+                if (d["type"] == "asciimath") {
+                    console.log("TEXT: " + d["value"]);
+                }
+                if (d["type"] == "latex") {
+                    console.log("LaTeX: " + d["value"]);
+                    document.getElementById("rendered-equation").innerHTML = "$$" + d["value"] + "$$";
+                    var DynamicMJ = {
+                        formula: document.getElementById("rendered-equation"),
+
+                        update: function () {
+                            this.formula.innerHTML = d["value"];
+                            MathJax.Hub.Queue(["Typeset", MathJax.Hub, this.formula]);
+                        }
+                    };
+                    DynamicMJ.update();
+                }
+            }
+        });
+
+</script>
 
 </html>
